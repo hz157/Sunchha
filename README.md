@@ -4,7 +4,7 @@
 <h3 align="center">网络设备自动化巡检工具</h3>
 <p align="center">
   <a href="https://www.gnu.org/licenses/gpl-3.0.html#license-text"><img src="https://img.shields.io/github/license/hz157/Sunchha?color=%231890FF" alt="License: GPL v3"></a>
-  <a href="https://github.com/1Panel-dev/maxkb"><img src="https://img.shields.io/github/stars/hz157/Sunchha?color=%231890FF&style=flat-square" alt="Stars"></a>  
+  <a href="https://github.com/hz157/Sunchha"><img src="https://img.shields.io/github/stars/hz157/Sunchha?color=%231890FF&style=flat-square" alt="Stars"></a>  
 </p>
 <hr/>
 
@@ -22,7 +22,7 @@
 - [开发环境](#开发环境)
 - [快速上手指南](#快速上手指南)
 - [支持设备列表](#支持设备列表)
-- [开发初衷](#开发初衷)
+- [The End](#The End)
 
 ## 介绍
 
@@ -97,7 +97,7 @@ python main.py
 
 ---
 
-## 开发初衷
+## The End
 欢迎大家Star、使用并贡献代码，共同推动网络自动化运维的进步！<br>
 愿 **Sunchha** 成为你在网络巡检工作中的得力助手，释放双手，拥抱无限可能！
 
