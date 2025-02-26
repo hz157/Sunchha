@@ -3,8 +3,8 @@
 <h3 align="center">Sunchha</h3>
 <h3 align="center">网络设备自动化巡检工具</h3>
 <p align="center">
-  <a href="https://www.gnu.org/licenses/gpl-3.0.html#license-text"><img src="https://img.shields.io/github/license/hz157/Sunchha?color=%231890FF" alt="License: GPL v3"></a>
-  <a href="https://github.com/hz157/Sunchha"><img src="https://img.shields.io/github/stars/hz157/Sunchha?color=%231890FF&style=flat-square" alt="Stars"></a>  
+  <a href="https://www.gnu.org/licenses/gpl-3.0.html#license-text"><img src="https://img.shields.io/github/license/hz157/Sunchha" alt="License: GPL v3"></a>
+  <a href="https://github.com/hz157/Sunchha"><img src="https://img.shields.io/github/stars/hz157/Sunchha" alt="Stars"></a>  
 </p>
 <hr/>
 
