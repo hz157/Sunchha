@@ -1,6 +1,6 @@
 import os
 import platform
-from check import check_all, check_specify
+from check import auto_match, full_query
 from file_handle import read_target_info
 
 # ANSI 颜色代码
@@ -43,29 +43,30 @@ def welcome():
 
 def menu():
     """ 显示菜单并处理用户输入 """
+    options = {
+        "1": lambda: check_devices(auto_match, "🔍 开始自动匹配..."),
+        "2": lambda: check_devices(full_query, "🔍 开始全量自检...")
+    }
+
     while True:
         print(COLOR_GREEN + """
         请选择要执行的操作：
-        1. 全量自检 (执行内置的所有巡检命令)
-        2. 指定检查 (请将检查命令放置在目标excel当中)
+        1. 自动匹配 (自动匹配Excel当中的command列)
+        2. 全量自检
         q. 退出
         """ + COLOR_RESET)
         
-        choice = input(COLOR_YELLOW + "请输入选项 (1/2/q): " + COLOR_RESET).strip()
-        
-        if choice == "1":
-            full_check()
-        elif choice == "2":
-            specific_check()
-        elif choice == "q" or choice == "Q":
+        choice = input(COLOR_YELLOW + "请输入选项，默认1 (1/2/q): " + COLOR_RESET).strip().lower()
+
+        if choice == "q":
             print(COLOR_RED + "程序已退出。" + COLOR_RESET)
             break
-        else:
-            print(COLOR_RED + "❌ 无效输入，请重新选择！" + COLOR_RESET)
+        options.get(choice, options["1"])()  # 默认执行自动匹配
 
-def full_check():
-    """ 对所有设备进行全量检查 """
-    print(COLOR_BLUE + "🔍 开始全量自检..." + COLOR_RESET)
+
+def check_devices(check_func, start_msg):
+    """ 通用设备检查函数，执行不同类型的巡检 """
+    print(COLOR_BLUE + start_msg + COLOR_RESET)
     try:
         targets = read_target_info()
         if not targets:
@@ -73,36 +74,15 @@ def full_check():
             return
 
         for item in targets:
-            if "SSH" in item.get("protocol"):
+            if "SSH" in item.get("protocol", ""):
                 print(f"🖥️ 正在检查设备: {item.get('ip')} ...")
-                check_all(item)
+                check_func(item)
 
-        print(COLOR_GREEN + "✅ 全量检查完成！" + COLOR_RESET)
+        print(COLOR_GREEN + "✅ 检查完成" + COLOR_RESET)
 
     except Exception as e:
         print(COLOR_RED + f"❌ 发生错误: {e}" + COLOR_RESET)
 
-def specific_check():
-    """ 允许用户指定检查命令进行检查 """
-    try:
-        targets = read_target_info()
-        if not targets:
-            print(COLOR_YELLOW + "⚠️ 未找到任何设备信息，请检查目标文件。" + COLOR_RESET)
-            return
-
-        print(COLOR_BLUE + "🔍 开始指定检查..." + COLOR_RESET)
-        for idx, item in enumerate(targets, start=1):
-            print(f"{idx}. {item.get('ip')}")
-
-        for item in targets:
-            if "SSH" in item.get("protocol"):
-                print(f"🖥️ 正在检查设备: {item.get('ip')} ...")
-                check_specify(item)
-
-        print(COLOR_GREEN + "✅ 指定检查完成！" + COLOR_RESET)
-
-    except Exception as e:
-        print(COLOR_RED + f"❌ 发生错误: {e}" + COLOR_RESET)
 
 if __name__ == "__main__":
     welcome()
