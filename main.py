@@ -1,23 +1,26 @@
 import os
 import platform
+import subprocess
 from check import auto_match, full_query
 from file_handle import read_target_info
+from update.update import Updater
+from color import *
 
-# ANSI 颜色代码
-COLOR_RED = "\033[91m"
-COLOR_GREEN = "\033[92m"
-COLOR_YELLOW = "\033[93m"
-COLOR_BLUE = "\033[94m"
-COLOR_CYAN = "\033[96m"
-COLOR_RESET = "\033[0m"
+VERSION = "v1.0.0"
+RELEASEDATE = "2025-03-04"
+PLATFORM = None
 
+    
 def clear_console():
     """ 清空控制台 """
+    global PLATFORM
     system_name = platform.system()
     if system_name == "Windows":
         os.system("cls")
+        PLATFORM = "Windows"
     elif system_name in ["Linux", "Darwin"]:
         os.system("clear")
+        PLATFORM = "Linux"
 
 def welcome():
     """ 显示欢迎信息 """
@@ -37,8 +40,8 @@ def welcome():
     |____/  \__,_||_| |_| \___||_| |_||_| |_| \__,_|
 
         Github Repo: https://github.com/hz157/Sunchha  
-        Version: B1.0   Release Date: 2025-02-25
-    """ + COLOR_RESET)
+        Version: {version}   Release Date: {release_date}
+    """.format(version=VERSION, release_date=RELEASEDATE) + COLOR_RESET)
 
 
 def menu():
