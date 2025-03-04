@@ -2,13 +2,7 @@ import os
 from command import H3CSwitchCommands, HuaweiSwitchCommands
 from file_handle import write_to_txt
 from rc_control import ssh_exec_command
-
-# ANSI 颜色定义
-COLOR_GREEN = "\033[92m"
-COLOR_RED = "\033[91m"
-COLOR_BLUE = "\033[94m"
-COLOR_YELLOW = "\033[93m"
-COLOR_RESET = "\033[0m"
+from color import *
 
 
 
