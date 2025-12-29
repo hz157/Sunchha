@@ -1,0 +1,30 @@
+########################
+# macOS
+########################
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 文件夹中的图标文件
+Icon
+
+# 缓存
+.Spotlight-V100
+.Trashes
+.fseventsd
+
+# 网络共享产生的 metadata
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+
+########################
+# VSCode
+########################
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
