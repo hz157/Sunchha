@@ -46,9 +46,13 @@ Sunchha 希望通过自动化手段，将繁琐工作交给机器完成，让你
 
 - 提交 Issue：  
   👉 https://github.com/hz157/sunchha_community_agent/issues  
+
 - 邮箱联系作者：  
   📧 **ryanzhang@bytesycn.com**
 
+- 微信沟通：
+
+  <img src="https://image-service.bytesycn.com/i/2026/2285e2e2-1004-42be-a6ec-885a29b55156.jpg" height="220" />
 ---
 
 感谢关注 Sunchha，愿它为你的网络巡检工作带来真正的效率提升 🚀
